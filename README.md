@@ -1,5 +1,5 @@
 # SpringBoot-Tutorial
-This repository contains examples of different use cases in SpringBoot.
+This repository contains code examples of different use cases in SpringBoot and resources to learn Spring Boot.
 
 <H3> Rsources to learn Spring Boot </H3>
 <ul>
