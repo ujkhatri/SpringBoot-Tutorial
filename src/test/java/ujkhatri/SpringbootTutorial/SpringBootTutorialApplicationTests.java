@@ -1,4 +1,4 @@
-package ujkhatri.Springboot_tutorial;
+package ujkhatri.SpringbootTutorial;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
