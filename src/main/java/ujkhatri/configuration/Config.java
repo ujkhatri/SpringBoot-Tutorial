@@ -1,4 +1,4 @@
-package ujkhatri.Configuration;
+package ujkhatri.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
