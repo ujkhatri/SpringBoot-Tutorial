@@ -1,14 +1,13 @@
 package ujkhatri.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import ujkhatri.Utilities.AsynchronousTasks;
 import ujkhatri.Utilities.CachedData;
 import ujkhatri.model.User;
+import ujkhatri.service.UserService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class Controller {
     CachedData cachedData;
 
     @Autowired
-    RestTemplate restTemplate;
+    UserService userService;
 
     @GetMapping(value = "/sample")
     public Map getAPI() {
@@ -48,16 +47,9 @@ public class Controller {
         return new ResponseEntity<Map>(successResponse(), HttpStatus.OK);
     }
 
-    //SERVICE_URL defined in application.properties file
-    @Value( "${SERVICE_URL}" )
-    private String serviceURL;
-
     @GetMapping(value = "/rest-client-demo")
     public ResponseEntity<Map> restClientDemo() {
-        User user = new User(1, "Suresh");
-        ResponseEntity<Map> response = restTemplate.postForEntity(serviceURL, user, Map.class);
-        System.out.println(response.getStatusCode());
-        System.out.println(response.getBody());
+        userService.addUser();
         return new ResponseEntity<Map>(successResponse(), HttpStatus.OK);
     }
 
@@ -67,5 +59,4 @@ public class Controller {
         responseMap.put("statusCode", 200);
         return responseMap;
     }
-
 }
