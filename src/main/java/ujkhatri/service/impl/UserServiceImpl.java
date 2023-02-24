@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser() {
         System.out.println("Printed from User Service");
-        User user = new User(1, "Suresh");
+        User user = new User(1, "Suresh", 30);
         ResponseEntity<Map> response = restTemplate.postForEntity(serviceURL, user, Map.class);
         System.out.println(response.getStatusCode());
         System.out.println(response.getBody());
