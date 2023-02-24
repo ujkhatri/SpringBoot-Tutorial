@@ -9,6 +9,10 @@ This repository contains code examples of different use cases in SpringBoot and 
     <li>@Scheduled annotation</li>
     <li>@Bean annotation</li>
     <li>@Async annotation</li>
+    <li>H2 In memory database</li>
+    <li>Docker compose configuration</li>
+    <li>Kibana logs</li>
+    <li>MongoDB intergation</li>
 </ul>
 
 
