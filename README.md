@@ -12,7 +12,7 @@ This repository contains code examples of different use cases in SpringBoot and 
     <li>H2 In memory database</li>
     <li>Docker compose configuration</li>
     <li>Kibana logs</li>
-    <li>MongoDB intergation</li>
+    <li>MongoDB integration</li>
 </ul>
 
 

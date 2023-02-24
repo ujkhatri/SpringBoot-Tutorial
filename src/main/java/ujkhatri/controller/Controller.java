@@ -46,11 +46,17 @@ public class Controller {
      *
      * @return the api
      */
-    @GetMapping(value = "/sample")
-    public Map<String, Object> getAPI() {
+    @GetMapping(value = "/kibana-log")
+    public Map<String, Object> insertKibanaLog() {
         asynchronousTasks.asynchronousTask();
         KibanaLog kibanaLog = new KibanaLog(UUID.randomUUID(), this.getClass().toString(), HttpStatus.OK.value(), "Status is Ok");
         log.info("The sample API is called: " + kibanaLog.toString());
+        return successResponse();
+    }
+
+    @GetMapping(value = "/trigger-async-task")
+    public Map<String, Object> triggerAsyncTask() {
+        asynchronousTasks.asynchronousTask();
         return successResponse();
     }
 
