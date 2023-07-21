@@ -1,5 +1,6 @@
 package ujkhatri.controller;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,6 +48,7 @@ public class Controller {
      * @return the api
      */
     @GetMapping(value = "/kibana-log")
+    @Timed
     public Map<String, Object> insertKibanaLog() {
         asynchronousTasks.asynchronousTask();
         KibanaLog kibanaLog = new KibanaLog(UUID.randomUUID(), this.getClass().toString(), HttpStatus.OK.value(), "Status is Ok");
@@ -99,7 +101,7 @@ public class Controller {
     private Map<String, Object> successResponse() {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("statusMessage", "success");
-        responseMap.put("statusCode", 200);
+        responseMap.put("statusCode", 500);
         return responseMap;
     }
 }

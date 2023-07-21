@@ -1,27 +1,27 @@
-version: '3'
-services:
-  elasticsearch:
-    image: elasticsearch:7.17.8
-    ports:
-      - 9200:9200
-      - 9300:9300
-    environment:
-      - discovery.type=single-node
-  logstash:
-    image: logstash:7.17.8
-    ports:
-      - 5606:5606
-    volumes:
-      - /Users/Projects/SpringBoot-Tutorial/config-dir
-    links:
-      - elasticsearch:elasticsearch
-    command: logstash -f /Users/Projects/SpringBoot-Tutorial/config-dir
-  kibana:
-    image: kibana:7.17.8
-    ports:
-      - 5601:5601
-    links:
-      - elasticsearch:elasticsearch
+#version: '3'
+#services:
+#  elasticsearch:
+#    image: elasticsearch:7.17.8
+#    ports:
+#      - 9200:9200
+#      - 9300:9300
+#    environment:
+#      - discovery.type=single-node
+#  logstash:
+#    image: logstash:7.17.8
+#    ports:
+#      - 5606:5606
+#    volumes:
+#      - /Users/Projects/SpringBoot-Tutorial/config-dir
+#    links:
+#      - elasticsearch:elasticsearch
+#    command: logstash -f /Users/Projects/SpringBoot-Tutorial/config-dir
+#  kibana:
+#    image: kibana:7.17.8
+#    ports:
+#      - 5601:5601
+#    links:
+#      - elasticsearch:elasticsearch
 
 #  db:
 #    image: mysql
@@ -45,3 +45,34 @@ services:
 #      - my-db:/var/lib/mysql
 #volumes:
 #  my-db:
+
+
+# Graphite
+
+#version: '3'
+#services:
+#  graphite:
+#    image: graphiteapp/graphite-statsd
+#    ports:
+#      - '8080:80'
+#      - '2003-2004:2003-2004'
+#      - '2023-2024:2023-2024'
+#      - '8125:8125/udp'
+#      - '8126:8126'
+#    volumes:
+#      - ./storage:/opt/graphite/storage
+#      - ./conf:/opt/graphite/conf
+#    environment:
+#      - TZ=UTC
+
+
+# RabbitMQ
+
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672  # RabbitMQ port
+      - 15672:15672  # RabbitMQ management console port
